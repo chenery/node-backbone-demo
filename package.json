@@ -1,0 +1,17 @@
+{
+    "name": "node-backbone-demo",
+    "version": "0.0.1",
+    "description": "A messaging app to showcase node.js and backbone.js",
+    "author": {
+        "name": "Paul Chenery",
+        "email": "paulchenery@gmail.com"
+    },
+    "private": true,
+    "scripts": {
+        "start": "node app"
+    },
+    "dependencies": {
+        "restify": "*",
+        "mongoose": "*"
+    }
+}
