@@ -49,6 +49,10 @@ function getMessages(req, res, next) {
 server.get('/messages', getMessages);
 //server.post('/messages', postMessage);
 
+server.get(/\/?.*/, restify.serveStatic({
+    directory: './public/'
+}));
+
 server.listen(8080, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
