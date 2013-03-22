@@ -1,8 +1,8 @@
 // Router.js
 // ----------------
-define(["Backbone"],
+define(["Backbone", "views/HomePage"],
 
-    function(Backbone) {
+    function(Backbone, HomePageView) {
         console.log('in router');
 
         var Router = Backbone.Router.extend({
@@ -23,11 +23,9 @@ define(["Backbone"],
             },
 
             index: function() {
-
+                console.log('index start');
                 // Instantiates a new view which will render the header text to the page
-//                new View();
-                console.log('index start')
-
+                new HomePageView();
             }
 
         });
