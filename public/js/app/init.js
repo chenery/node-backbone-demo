@@ -23,7 +23,7 @@ require.config({
 
 //        "bootstrap": "libs/plugins/bootstrap",
 
-//        "text": "libs/plugins/text",
+        "text": "libs/text",
 
         // Application Folders
         // -------------------

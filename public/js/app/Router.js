@@ -1,8 +1,10 @@
 // Router.js
 // ----------------
-define(["Backbone", "views/HomePage"],
+define(["Backbone",
+    "views/HomePage",
+    "views/MessagesPageView"],
 
-    function(Backbone, HomePageView) {
+    function(Backbone, HomePageView, MessagesPageView) {
         console.log('in router');
 
         var Router = Backbone.Router.extend({
@@ -18,7 +20,8 @@ define(["Backbone", "views/HomePage"],
             routes: {
 
                 // When there is no hash on the url, the home method is called
-                "": "index"
+                "": "index",
+                "/messages": "messages"
 
             },
 
@@ -26,6 +29,13 @@ define(["Backbone", "views/HomePage"],
                 console.log('index start');
                 // Instantiates a new view which will render the header text to the page
                 new HomePageView();
+            },
+
+            messages: function() {
+                console.log('messages start');
+                // todo review when this actually gets fired
+                // Instantiates a new view which will render the header text to the page
+                new MessagesPageView();
             }
 
         });

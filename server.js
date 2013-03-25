@@ -46,7 +46,7 @@ function getMessages(req, res, next) {
 //}
 
 // Set up our routes and start the server
-server.get('/messages', getMessages);
+server.get('/data/messages', getMessages);
 //server.post('/messages', postMessage);
 
 server.get(/\/?.*/, restify.serveStatic({

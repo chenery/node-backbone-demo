@@ -1,7 +1,7 @@
 // HomePage view
-define(["underscore", "Backbone"],
+define(["Backbone", "views/MessagesPageView"],
 
-    function(_, Backbone){
+    function(Backbone, MessagesPageView){
 
         var HomePageView = Backbone.View.extend({
 
@@ -18,15 +18,22 @@ define(["underscore", "Backbone"],
 
             // View Event Handlers
             events: {
+                'click .messagesLink' : 'showMessages'
+            },
 
+            showMessages: function(e) {
+                if (e) {
+                    e.preventDefault();
+                }
+                new MessagesPageView();
             },
 
             // Renders the view's template to the UI
             render: function() {
 
                 // Setting the view's template property using the Underscore template method
-//                this.template = _.template("<p>test</p>", {});
-                this.template = "<p>test</p>";
+                // todo work out how we can see this "_" here?
+                this.template = _.template('<p>test <a class="messagesLink" href="messages">Messages</a></p>', {});
 
                 // Dynamically updates the UI with the view's template
                 this.$el.html(this.template);
