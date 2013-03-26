@@ -11,7 +11,10 @@
         "start": "node app"
     },
     "dependencies": {
-        "restify": "*",
-        "mongoose": "*"
+        "express": "3.x",
+        "ejs": ">= 0.0.0",
+        "mongoose": "*",
+        "passport": "*",
+        "passport-facebook": "*"
     }
 }

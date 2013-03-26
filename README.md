@@ -17,3 +17,14 @@ node-backbone-demo
 - client js structure, in public/js/
 - How do we have full client libs for development and minimized for prod?
 - How do we do client side js package management?
+
+# Backbone.js
+- http://stackoverflow.com/questions/7367627/backbone-js-rendering-collections-in-real-world-apps
+
+# Facebook login
+- http://passportjs.org/guide/facebook/
+- https://github.com/jaredhanson/passport-facebook/tree/master/examples/login
+- http://stackoverflow.com/questions/11006318/using-passportjs-with-connect-for-nodejs-to-authenticate-facebook-users
+
+# Templating
+- Use handlebars on the client and the server
