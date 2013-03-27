@@ -1,33 +1,12 @@
 // server dependencies
-var mongoose = require('mongoose/');
 var express = require('express');
+var Models = require('./repository/models');
+var dao = require('./repository/dao');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
-var config = require('./config'); // Local config file
 
-// Setup mongoose and the database
-var db = mongoose.connect(config.creds.mongoose_auth);
-var Schema = mongoose.Schema;
-
-// Create a schema for our data
-// http://mongoosejs.com/docs/guide.html
-var MessageSchema = new Schema({
-    owner: String,
-    message: String,
-    createdAt: String
-});
-// Use the schema to register a model
-mongoose.model('messages', MessageSchema);
-var Message = mongoose.model('messages');
-
-
-// This function is responsible for returning all entries for the Message model
-// todo add in the sort: .sort('createdAt', -1)
-function getMessages(req, res, next) {
-    Message.find().limit(20).execFind(function (arr,data) {
-        res.send(data);
-    });
-}
+// setup the db
+Models.initSchema();
 
 // Setup the passport facebook plugin
 // Passport session setup.
@@ -58,11 +37,9 @@ passport.use(new FacebookStrategy({
         // asynchronous verification, for effect...
         process.nextTick(function () {
 
-            // To keep the example simple, the user's Facebook profile is returned to
-            // represent the logged-in user.  In a typical application, you would want
-            // to associate the Facebook account with a user record in your database,
+            // Associate the Facebook account with a user record in the database,
             // and return that user instead.
-            return done(null, profile);
+            return dao.saveOrUpdateUserFromProfile(accessToken, profile, done);
         });
     }
 ));
@@ -131,7 +108,12 @@ app.get('/logout', function(req, res){
 
 // data api routes
 app.get('/data/messages', function(req, res){
-    return getMessages(req, res);
+    return dao.getMessages(req, res);
+});
+
+// data api routes
+app.get('/data/users', function(req, res){
+    return dao.getUsers(req, res);
 });
 
 app.listen(8080);

@@ -31,7 +31,7 @@
         <h2>Welcome! Please log in.</h2>
         <a href="/auth/facebook">Login with Facebook</a>
         <% } else { %>
-        <h2>Hello, <%= user.username %>.</h2>
+        <h2>Hello, <%= user.profile.name %>.</h2>
         <% } %>
 
     </div>

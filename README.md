@@ -28,3 +28,6 @@ node-backbone-demo
 
 # Templating
 - Use handlebars on the client and the server
+
+# Debugging
+- http://www.jetbrains.com/idea/webhelp/running-and-debugging-node-js.html
